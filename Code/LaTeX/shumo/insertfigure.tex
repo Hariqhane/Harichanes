@@ -1,0 +1,23 @@
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{"在这里填你的图片1的文件名"}
+	\centering
+	\label{"可以和caption保持一致，也可以不写"}
+	\caption{"图片的标题，这个会显示在图片下方"}
+	\centering
+\end{figure}
+%一张图片一行内居中：
+///////////////////////////////////
+\begin{figure}[H]
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=2.8in,height=2.2in]{"在这里填你的图片1的文件名"}
+		\caption{"图片的标题，这个会显示在图片下方"}
+		\label{"可以和caption保持一致，也可以不写"}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=2.8in,height=2.2in]{"在这里填你的图片2的文件名"}
+		\caption{"图片的标题，这个会显示在图片下方"}
+		\label{"可以和caption保持一致，也可以不写"}
+	\end{minipage}
+\end{figure}
+%两张图片共用一行对称
