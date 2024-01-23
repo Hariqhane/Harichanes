@@ -1,6 +1,9 @@
 \documentclass[12pt, a4paper, oneside]{ctexart}
 \usepackage{amsmath, amsthm, amssymb, appendix, bm, graphicx, hyperref, mathrsfs}
 \usepackage{booktabs}
+\usepackage{cite}
+\usepackage[numbers,sort&compress]{natbib}
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 \title{\textbf{论文标题}}
 \author{Dylaaan}
 \date{\today}
@@ -22,8 +25,8 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-    这里是摘要. 
-    \par\textbf{关键词：}这里是关键词; 这里是关键词. 
+    这里是摘要.
+    \par\textbf{关键词：}这里是关键词; 这里是关键词.
 \end{abstract}
 
 \newpage
@@ -38,51 +41,16 @@
 
 \subsection{二级标题}
 
-这里是正文. 
-
+这里是正文\upcite{wk}.你好你好你说地方噶是的发生的\upcite{Mishra2023}
 \newpage
-
-\begin{thebibliography}{99}
-    \bibitem{a}作者. \emph{文献}[M]. 地点:出版社,年份.
-    \bibitem{b}作者. \emph{文献}[M]. 地点:出版社,年份.
-\end{thebibliography}
-
-\begin{table}[]
-    \begin{tabular}{cclll}
-    \hline
-    \textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                                                \\ \hline
-    $C$                           & \multicolumn{4}{c}{Competition matirx of species}                                       \\
-    $L$                           & \multicolumn{4}{c}{Niche width od specise}                                              \\
-    $\Gamma $                     & \multicolumn{4}{c}{Species’ sensitivity to drought}                                     \\
-    ${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t}                           \\
-    ${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of the i-th species due to its reproduction} \\
-    ${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-th species reduced by death}        \\
-    ${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability}                           \\
-    $K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}                                \\ \hline
-    \end{tabular}
-    \end{table}
-
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-\begin{table}[]
-    \begin{tabular}{@{}cclll@{}}
-    \toprule
-    \textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                                                \\ \midrule
-    $C$                           & \multicolumn{4}{c}{Competition matirx of species}                                       \\
-    $L$                           & \multicolumn{4}{c}{Niche width od specise}                                              \\
-    $\Gamma $                     & \multicolumn{4}{c}{Species’ sensitivity to drought}                                     \\
-    ${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t}                           \\
-    ${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of the i-th species due to its reproduction} \\
-    ${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-th species reduced by death}        \\
-    ${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability}                           \\
-    $K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}                                \\ \bottomrule
-    \end{tabular}
-    \end{table}
+Reference
+\bibliographystyle{unsrt}      %参考文献样式
+\bibliography{C:/Users/IK/Desktop/testbib}
 
 \begin{appendices}
     \renewcommand{\thesection}{\Alph{section}}
     \section{附录标题}
-        这里是附录. 
+    这里是附录.
 \end{appendices}
 
 \end{document}

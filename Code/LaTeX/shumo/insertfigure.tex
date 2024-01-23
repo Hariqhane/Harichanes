@@ -27,10 +27,11 @@
 \begin{table}[h]%h是使表格优先处于当前位置
 	\centering%使表格位置居中
 	\renewcommand\arraystretch{1.5}%调整行距离
-	\tabcolsep=2cm%调整列距离
+	\tabcolsep=1.5cm%调整列距离
 	\begin{tabular}{@{}cclll@{}}
-		\toprule
-		\centering{\textbf{Symbol}}               & \multicolumn{4}{c}{\textbf{Description}}                      \\ \midrule
+		\toprule[1.5pt]
+		\textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                      \\
+		\midrule[1pt]
 		$C$                           & \multicolumn{4}{c}{Competition matirx of species}             \\
 		$L$                           & \multicolumn{4}{c}{Niche width od specise}                    \\
 		$\Gamma $                     & \multicolumn{4}{c}{Species sensitivity to drought}            \\
@@ -39,6 +40,6 @@
 		${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-thh}      \\
 		${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability} \\
 		$K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}      \\
-		\bottomrule
+		\bottomrule[1.5pt]
 	\end{tabular}
 \end{table}
