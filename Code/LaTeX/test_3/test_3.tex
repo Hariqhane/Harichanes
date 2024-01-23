@@ -1,7 +1,6 @@
-
 \documentclass[12pt, a4paper, oneside]{ctexart}
 \usepackage{amsmath, amsthm, amssymb, appendix, bm, graphicx, hyperref, mathrsfs}
-
+\usepackage{booktabs}
 \title{\textbf{论文标题}}
 \author{Dylaaan}
 \date{\today}
@@ -48,7 +47,37 @@
     \bibitem{b}作者. \emph{文献}[M]. 地点:出版社,年份.
 \end{thebibliography}
 
-\newpage
+\begin{table}[]
+    \begin{tabular}{cclll}
+    \hline
+    \textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                                                \\ \hline
+    $C$                           & \multicolumn{4}{c}{Competition matirx of species}                                       \\
+    $L$                           & \multicolumn{4}{c}{Niche width od specise}                                              \\
+    $\Gamma $                     & \multicolumn{4}{c}{Species’ sensitivity to drought}                                     \\
+    ${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t}                           \\
+    ${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of the i-th species due to its reproduction} \\
+    ${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-th species reduced by death}        \\
+    ${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability}                           \\
+    $K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}                                \\ \hline
+    \end{tabular}
+    \end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+    \begin{tabular}{@{}cclll@{}}
+    \toprule
+    \textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                                                \\ \midrule
+    $C$                           & \multicolumn{4}{c}{Competition matirx of species}                                       \\
+    $L$                           & \multicolumn{4}{c}{Niche width od specise}                                              \\
+    $\Gamma $                     & \multicolumn{4}{c}{Species’ sensitivity to drought}                                     \\
+    ${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t}                           \\
+    ${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of the i-th species due to its reproduction} \\
+    ${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-th species reduced by death}        \\
+    ${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability}                           \\
+    $K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}                                \\ \bottomrule
+    \end{tabular}
+    \end{table}
 
 \begin{appendices}
     \renewcommand{\thesection}{\Alph{section}}

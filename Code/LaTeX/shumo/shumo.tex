@@ -1,6 +1,12 @@
 \documentclass{mcmthesis}
 \usepackage{xcolor} % 加入xcolor宏包,改变字体颜色
 \usepackage{indentfirst} %首行缩进
+\usepackage{booktabs}%三线表\usepackage{newtxtext}%\usepackage{palatino}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\parindent}{2em} %2em代表首行缩进两个字符
 \mcmsetup{
 	CTeX = false,
@@ -8,14 +14,12 @@
 	problem =\textcolor{red}{A},
 	sheet = true, titleinsheet = true, keywordsinsheet = true,
 	titlepage = false, abstract = true}
-\usepackage{newtxtext}%\usepackage{palatino}
-\usepackage{lipsum}
-\usepackage{float}
-\usepackage{indentfirst}
-\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\headheight}{14.5pt} % 增加头部高度
 \addtolength{\topmargin}{-2.5pt} % 调整顶部边距以补偿
-\title{\textbf{Rapid Bushfire Response for Emergency Response}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\textbf{\Large{Rapid Bushfire Response for Emergency Response}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 \begin{abstract}
 	\qquad How to respond and deal with fires in time when they occur is a question worth
@@ -39,10 +43,7 @@
 		safety factor \quad commensurable \quad signal-to-noise ratio
 	\end{keywords}
 \end{abstract}
-
 \maketitle
-
-
 
 \clearpage
 \pagestyle{fancy}
@@ -67,7 +68,7 @@ RESTATEMENT
 ONE FIGURE AND SOME DISCRIPTION.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Assumptions and Notations}
+\section{Assumptions and Notations}%假设和符号
 \subsection{Assumptions}
 \begin{itemize}
 	\item
@@ -76,9 +77,26 @@ ONE FIGURE AND SOME DISCRIPTION.
 	\item
 \end{itemize}
 \subsection{Notations}
-NOTATIONS
+	\begin{table}[h]%h是使表格优先处于当前位置
+		\centering%使表格位置居中
+		\renewcommand\arraystretch{1.5}%调整行距离
+		\tabcolsep=1.5cm%调整列距离
+		\begin{tabular}{@{}cclll@{}}
+			\toprule[1.5pt]
+			\textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                      \\
+			\midrule[1pt]
+			$C$                           & \multicolumn{4}{c}{Competition matirx of species}             \\
+			$L$                           & \multicolumn{4}{c}{Niche width od specise}                    \\
+			$\Gamma $                     & \multicolumn{4}{c}{Species sensitivity to drought}            \\
+			${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t} \\
+			${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of }               \\
+			${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-thh}      \\
+			${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability} \\
+			$K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}      \\
+			\bottomrule[1.5pt]
+		\end{tabular}
+	\end{table}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Model I: XXXXXX}
 PRE-DISCRIPTION OF THE MODEL. SOME FIGURES AS WELL.
 \subsection{Factors/Development of the model}
@@ -92,7 +110,7 @@ BALABALA
 \subsection{Factors/Development of the model}
 BALABALA
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Model II: XXXXXX}
 PRE-DISCRIPTION OF THE MODEL. SOME FIGURES AS WELL.
 \subsection{Factors/Development of the model}

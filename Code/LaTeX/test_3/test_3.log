@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  13 JAN 2024 17:20
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  22 JAN 2024 15:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -428,8 +428,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup9
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen190
+\lightrulewidth=\dimen191
+\cmidrulewidth=\dimen192
+\belowrulesep=\dimen193
+\belowbottomsep=\dimen194
+\aboverulesep=\dimen195
+\abovetopsep=\dimen196
+\cmidrulesep=\dimen197
+\cmidrulekern=\dimen198
+\defaultaddspace=\dimen199
+\@cmidla=\count316
+\@cmidlb=\count317
+\@aboverulesep=\dimen256
+\@belowrulesep=\dimen257
+\@thisruleclass=\count318
+\@lastruleclass=\count319
+\@thisrulewidth=\dimen258
 )
-\c@theorem=\count316
+\c@theorem=\count320
  (./test_3.aux)
 \openout1 = `test_3.aux'.
 
@@ -533,17 +552,36 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
 (Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 33.
- [1] [1] [2] [3] (./test_3.aux)
+ [1] [1]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 50.
+
+
+Overfull \hbox (13.95609pt too wide) in paragraph at lines 51--63
+[][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 67.
+
+
+Overfull \hbox (7.95609pt too wide) in paragraph at lines 68--80
+[][] 
+ []
+
+[2] [3] (./test_3.aux)
 Package rerunfilecheck Info: File `test_3.out' has not changed.
 (rerunfilecheck)             Checksum: 7FA96FC65EBB215AEF7D53CFE28E286E;242.
  ) 
 Here is how much of TeX's memory you used:
- 15806 strings out of 476683
- 349258 string characters out of 5800519
- 1847012 words of memory out of 5000000
- 35802 multiletter control sequences out of 15000+600000
+ 15893 strings out of 476683
+ 351317 string characters out of 5800519
+ 1853012 words of memory out of 5000000
+ 35885 multiletter control sequences out of 15000+600000
  528320 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,6n,97p,422b,344s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,10n,97p,422b,346s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on test_3.pdf (5 pages).
