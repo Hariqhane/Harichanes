@@ -1,13 +1,29 @@
 \documentclass{mcmthesis}
+%导入包
+\usepackage{url}
+\usepackage{hyperref}%处理URL
+\usepackage{times}%更改字体为Times New Roman
 \usepackage{xcolor} % 加入xcolor宏包,改变字体颜色
-\usepackage{indentfirst} %首行缩进
 \usepackage{booktabs}%三线表\usepackage{newtxtext}%\usepackage{palatino}
 \usepackage{lipsum}
-\usepackage{float}
+\usepackage{float}%调整图片位置
 \usepackage{indentfirst}
 \usepackage{multirow}
+\usepackage{graphicx}%插入图片
+\usepackage{subfigure}%插入子图
+\usepackage[]{caption2}%设置子图标题
+\usepackage{setspace}%设置间距
+\usepackage[numbers,sort&compress]{natbib}%?使连续的参考文献能够中间用破折号连起来？比如[6,7,8,9]变成[6-9]
+%指令修改
+\newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
+\renewcommand{\figurename}{\textbf{Fig.}} %重定义编号前缀词
+\renewcommand{\captionlabeldelim}{.~} %重定义分隔符,将默认的分隔符（通常是冒号 : 或其他字符）更改为一个点 . 后跟一个小空格 ~（在 LaTeX 中 ~ 代表一个不断行的空格）。
+%\roman是罗马数字编号，\alph是默认的字母编号，\arabic是阿拉伯数字编号，可按需替换下一行的相应位置
+\renewcommand{\thesubfigure}{\roman{subfigure}} % 这行代码将子图编号设置为罗马数字，并且在编号外加括号。
+\makeatletter \renewcommand{\@thesubfigure}{\thesubfigure \space} % 子图编号与名称的间隔设置。这里是加了一个空格:\space
+%\renewcommand{\p@subfigure}{} \makeatother % 重定义子图的引用格式，此处是清除了前缀，因此在引用时只显示子图编号，不显示主图编号。
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\parindent}{2em} %2em代表首行缩进两个字符
 \mcmsetup{
 	CTeX = false,
 	tcn =\textcolor{red}{2411262},
@@ -20,14 +36,16 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \title{\textbf{\Large{Rapid Bushfire Response for Emergency Response}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%开始文档
 \begin{document}
+
+\addtocontents{toc}{\protect\setstretch{0.5}}%调整目录间距,要在begin document后
 \begin{abstract}
 	\qquad How to respond and deal with fires in time when they occur is a question worth
-	thinking about. This paper provides a fire response plan for Victoria through the ratio-
-	nal deployment of EOC, drones and forward teams.
+	thinking about. This paper provides a fire response plan for Victoria through the rational deployment of EOC, drones and forward teams.
 
 	In Task 1, the paper establishes the area safety evaluation model with fire frequency,
-	size, andrecentfiresituationasindicators toclassify thedanger levels of different areas
+	size, and recent fire situation as indicators to classify the danger levels of different areas
 	in Victoria. Then, we confirm that drones should provide different services for high-
 	risk and dangerous areas. In order to increase the service capacity, we optimize both
 	capacity and cost. For capability, we make the average response time of SSA drones
@@ -37,10 +55,9 @@
 	consider the mix between SSA drones and radio repeater drones, and calculate the
 	number of repeater drones using a greedy mix-based maximum number solving algo-
 	rithm. The total cost is calculated and finally the quantity optimization model based on
-	the maximum mix rate and minimum cost is obtained.\textbf{ 200 SSA drones and 32 radio
-		repeater drones are needed, respectively.}
+	the maximum mix rate and minimum cost is obtained.
 	\begin{keywords}
-		safety factor \quad commensurable \quad signal-to-noise ratio
+		safety factor; commensurable; signal-to-noise ratio; Niche width;\\Population interactions
 	\end{keywords}
 \end{abstract}
 \maketitle
@@ -48,61 +65,133 @@
 \clearpage
 \pagestyle{fancy}
 % Uncomment the next line to generate a Table of Contents
-%\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%目录
 \newpage
 \setcounter{page}{1}
 \rhead{Page \thepage\ }
-
-\newpage   %%目录页
+\newpage
 \tableofcontents
 \thispagestyle{empty}
 \newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%1
 \section{Introduction}
+%1.1
 \subsection{Problem Background}
-PROBLEM BACKGROUND
+
+Plants of different species possess varying susceptibilities and abilities to resist drought. Extensive observations have indicated that the species richness of plant communities significantly impacts their ability to adapt to water scarcity over the long term. Communities containing a larger number of species tend to exhibit higher resistance to drought stress in subsequent generations, whereas those with fewer species exhibit lower resistance. Thus, analyzing the association between drought adaptability and the number of species in plant communities is critical for their survival over extended periods.
+%fig1
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.85]{C:/Users/IK/Desktop/figure/figure_1.png}
+	\caption{ World drought situation from NIDIS}
+	\label{figure_1}
+\end{figure}
+%1.2
 \subsection{Restatement of the Problem}
-RESTATEMENT
-\subsection{Our Work}
-ONE FIGURE AND SOME DISCRIPTION.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Assumptions and Notations}%假设和符号
-\subsection{Assumptions}
 \begin{itemize}
-	\item
-	\item
-	\item
-	\item
+	\item  Develop a model to predict the evolution of plant communities under various irregular weather cycles and consider the interactions between species.
+	\item  Determine the minimum number of species required for the community to benefit and the
+	      impact of increased species numbers on the community.
+	\item  Analyze the effect of species type on community evolution.
+	\item  Discuss the impact of the greater or less frequency and width of drought.
+	\item  Analyze the impact of other factors such as pollution and habitat reduction on the model.
+	\item According to the model, determine what should be done to ensure the long-term viability of
+	      a plant community and the impacts on the larger environment.
 \end{itemize}
-\subsection{Notations}
-	\begin{table}[h]%h是使表格优先处于当前位置
-		\centering%使表格位置居中
-		\renewcommand\arraystretch{1.5}%调整行距离
-		\tabcolsep=1.5cm%调整列距离
-		\begin{tabular}{@{}cclll@{}}
-			\toprule[1.5pt]
-			\textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                      \\
-			\midrule[1pt]
-			$C$                           & \multicolumn{4}{c}{Competition matirx of species}             \\
-			$L$                           & \multicolumn{4}{c}{Niche width od specise}                    \\
-			$\Gamma $                     & \multicolumn{4}{c}{Species sensitivity to drought}            \\
-			${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t} \\
-			${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of }               \\
-			${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-thh}      \\
-			${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability} \\
-			$K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}      \\
-			\bottomrule[1.5pt]
-		\end{tabular}
-	\end{table}
+%1.3
+\subsection{Our Work}
 
-\section{Model I: XXXXXX}
-PRE-DISCRIPTION OF THE MODEL. SOME FIGURES AS WELL.
-\subsection{Factors/Development of the model}
-BALABALA
+To sum up the full article, we
+\begin{itemize}
+	\item  Develop an ecological niche model considering uncertain weather cycles to simulate plant
+	      community evolution. The model accounts for species interactions and successional pro-
+	      cesses based on inter-species competition, and establishes competition matrices to describe
+	      population interactions within the community.
+	\item  Use the model to determine the minimum number of species required for a community to
+	      benefit from increased species numbers. The model considers the ecological niche width of
+	      each population under uncertain drought conditions, using differential equations based on
+	      the Beverton Holt and Lotka Volterra equations.
+\end{itemize}
+%fig2
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.7]{C:/Users/IK/Desktop/figure/figure_2.png}
+	\caption{The flow chart of our work}
+	\label{figure_2}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2
+\section{Assumptions and Notations}%假设和符号
+%2.1
+\subsection{Assumptions}
+
+To simplify the problem and make it convenient for us to simulate real-life conditions, we make the
+following basic assumptions, each of which is properly justified.
+\begin{itemize}
+	\item \textbf{Assumption 1:} The number of species in the plant community will not increase.
+	      Justification: We assume a closed system where no new species are introduced or can
+	      colonize the plant community.
+	\item  \textbf{Assumption 2:} Species don't mutate but the population and the resources it controls change
+	      over time.\\
+	      \textbf{Justification:} The timescale of the study is relatively short, and genetic changes and mutations
+	      that could lead to ecological changes are assumed to be negligible.
+	\item \textbf{Assumption 3:} The competitive or mutually-beneficial relationship between species in a
+	      community remains the same.
+\end{itemize}
+%2.2
+\subsection{Notations}
+%table1
+\begin{table}[h]%h是使表格优先处于当前位置
+	\centering%使表格位置居中
+	\renewcommand\arraystretch{1.5}%调整行距离
+	\tabcolsep=1.5cm%调整列距离
+	\begin{tabular}{@{}cclll@{}}
+		\toprule[1.5pt]
+		\textbf{Symbol}               & \multicolumn{4}{c}{\textbf{Description}}                      \\
+		\midrule[1pt]
+		$C$                           & \multicolumn{4}{c}{Competition matirx of species}             \\
+		$L$                           & \multicolumn{4}{c}{Niche width od specise}                    \\
+		$\Gamma $                     & \multicolumn{4}{c}{Species sensitivity to drought}            \\
+		${l_i}\left( t \right)$       & \multicolumn{4}{c}{Niche width of the i-th species at time t} \\
+		${b_i}\left( t \right)$       & \multicolumn{4}{c}{Increase in niche width of }               \\
+		${d_i}\left( t \right)$       & \multicolumn{4}{c}{fraction of niche width of the i-thh}      \\
+		${\sigma _i}\left( t \right)$ & \multicolumn{4}{c}{Gaussian white noise for unpredictability} \\
+		$K\left( t \right)$           & \multicolumn{4}{c}{Niche width of a community at time t}      \\
+		\bottomrule[1.5pt]
+	\end{tabular}
+\end{table}
+%3
+\section{Model I: Plant Community Evolution Model}
+Ecological niche refers to a species's position in a community in terms of its functional relationships
+and roles with related species, considering time and space. Niche width is an indicator of the
+diversity of resources used by organisms \upcite{Mishra2023}. The wider the niche width of a species, the less
+specialized it is, and the stronger its adaptability to the environment.
+\subsection{Model Overview}
+
+Ecological niche model describes plant community based on inter specific interactions\upcite{JitSingh2018}.
+According to the ecological niche model, each species occupies a specific ecological niche with
+particular resource utilization strategies and environmental adaptability. The model considers
+species interactions through resource competition and cooperation.\upcite{zotero-114}
+%fig3
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.85]{C:/Users/IK/Desktop/figure/figure_3.png}
+	\caption{Steps of the ecological niche model}
+	\label{figure_3}
+\end{figure}
+The evolution process of community-based on niche model is shown in \ref {figure_4}
+%fig4
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.85]{C:/Users/IK/Desktop/figure/figure_4.png}
+	\caption{The evolution process of community}
+	\label{figure_4}
+\end{figure}
 \subsubsection{More Sub-details I}
-BALABALA
+test
 \subsubsection{More Sub-details II}
 BALABALA
 \subsection{Factors/Development of the model}
@@ -110,7 +199,7 @@ BALABALA
 \subsection{Factors/Development of the model}
 BALABALA
 
-
+%4
 \section{Model II: XXXXXX}
 PRE-DISCRIPTION OF THE MODEL. SOME FIGURES AS WELL.
 \subsection{Factors/Development of the model}
@@ -125,14 +214,17 @@ BALABALA
 BALABALA
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%5
 \section{Application of Models}
 CHOOSE CERTAIN REGION TO UTILIZE THE MODELS ABOVE.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%6
 \section{Sensitivity Analysis}
 NECESSARY SENSITIVITY ANALYSIS HERE.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%7
 \section{Model Evaluation and Further Discussion}
 \subsection{Strengths}
 \begin{itemize}
@@ -153,34 +245,28 @@ NECESSARY SENSITIVITY ANALYSIS HERE.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Newspaper Artical/Flyer/Magazine}
-BALABALA
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\newpage
-\begin{thebibliography}{99}%参考文献
-	\bibitem{1}
-	\bibitem{2}
-	\bibitem{3}
-	\bibitem{4}
-	\bibitem{5}
-	\bibitem{6}
-	\bibitem{7}
-	\bibitem{8}
-	\bibitem{9}
-	\bibitem{10}
-	\bibitem{11}
-	\bibitem{12}
-	\bibitem{13}
-\end{thebibliography}
-
+% \begin{thebibliography}{99}%参考文献
+% 	\bibitem{1}
+% 	\bibitem{2}
+% 	\bibitem{3}
+% 	\bibitem{4}
+% 	\bibitem{5}
+% 	\bibitem{6}
+% 	\bibitem{7}
+% 	\bibitem{8}
+% 	\bibitem{9}
+% 	\bibitem{10}
+% 	\bibitem{11}
+% 	\bibitem{12}
+% 	\bibitem{13}
+% \end{thebibliography}%手动目录
+%Reference
+\bibliographystyle{unsrt}      %参考文献样式
+\bibliography{C:/Users/IK/Desktop/testbib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\newpage
-
-\newpage
-\newpage
+%Appendices
 \begin{appendices}
 	\section{First appendix}
 	\begin{lstlisting}

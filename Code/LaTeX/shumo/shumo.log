@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  22 JAN 2024 17:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  26 JAN 2024 00:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -487,8 +487,8 @@ File: svgnam.def 2022/06/12 v2.14 Predefined colors according to SVG 1.1 (UK)
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-)) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/tools/indentfirst.sty
-Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/lipsum/lipsum.sty (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2023-02-22 L3 programming layer (loader) 
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
@@ -512,34 +512,90 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box66
 \@float@everytoks=\toks42
 \@floatcapt=\box67
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/tools/indentfirst.sty
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip82
+\subfigcapskip=\skip83
+\subfigcaptopadj=\dimen193
+\subfigbottomskip=\skip84
+\subfigcapmargin=\dimen194
+\subfiglabelskip=\skip85
+\c@subfigure=\count320
+\c@lofdepth=\count321
+\c@subtable=\count322
+\c@lotdepth=\count323
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip86
+\subfig@bottom=\skip87
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/caption/caption2.sty
+Package: caption2 2021/01/20 v2.2i Customising captions (AR)
+ (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
+\caption@tempdima=\dimen195
+\captionmargin=\dimen196
+\caption@leftmargin=\dimen197
+\caption@rightmargin=\dimen198
+\caption@width=\dimen199
+\caption@indent=\dimen256
+\caption@parindent=\dimen257
+\caption@hangindent=\dimen258
+Package caption Info: Standard document class detected.
+)
+Package caption2 Info: Running in caption2 v2.0 compatibility mode on input line 231.
+\captionlinewidth=\dimen259
+\realcaptionwidth=\dimen260
+Package caption2 Info: float package is loaded on input line 335.
+Package caption2 Info: longtable package is loaded on input line 352.
+Package caption2 Info: subfigure package is loaded on input line 445.
+Package caption2 Info: subfigure package v2.1 (or newer) detected on input line 445.
+\subfigcapwidth=\dimen261
+\subcapindent=\dimen262
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip88
+\bibsep=\skip89
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count324
+)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 40.
+ (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (./shumo.aux)
 \openout1 = `shumo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 40.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-\c@lstlisting=\count320
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+\c@lstlisting=\count325
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -575,62 +631,72 @@ LaTeX Font Info:    ... okay on input line 23.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 23.
+Package hyperref Info: Link coloring OFF on input line 40.
 (./shumo.out) (./shumo.out)
 \@outlinefile=\write4
 \openout4 = `shumo.out'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
  [1
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+fvs on input line 57.
- (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/bera/t1fvs.fd
-File: t1fvs.fd 2004/09/07 scalable font definitions for T1/fvs.
-)
-LaTeX Font Info:    Font shape `T1/fvs/b/n' will be
-(Font)              scaled to size 15.55188pt on input line 57.
- (./shumo.toc
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 74.
+ (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
+) (./shumo.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 2.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Font shape `T1/fvs/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 26.
- [1
-
-])
+))
 \tf@toc=\write5
 \openout5 = `shumo.toc'.
 
- [2] [3] [4] [5] [6]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 186.
+ [1
+
+]
+File: C:/Users/IK/Desktop/figure/figure_1.png Graphic file (type bmp)
+<C:/Users/IK/Desktop/figure/figure_1.png>
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 95.
+ (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [2]
+File: C:/Users/IK/Desktop/figure/figure_2.png Graphic file (type bmp)
+<C:/Users/IK/Desktop/figure/figure_2.png>
+ [3]
+File: C:/Users/IK/Desktop/figure/figure_3.png Graphic file (type bmp)
+<C:/Users/IK/Desktop/figure/figure_3.png>
+File: C:/Users/IK/Desktop/figure/figure_4.png Graphic file (type bmp)
+<C:/Users/IK/Desktop/figure/figure_4.png>
+ [4] [5] [6] (./shumo.bbl) [7]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 272.
  (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [7] 
+) [8] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./shumo.aux)
 Package rerunfilecheck Info: File `shumo.out' has not changed.
-(rerunfilecheck)             Checksum: 0CD0E09365FEFDFC8A7DDF3EB9E94948;4593.
+(rerunfilecheck)             Checksum: 5067E18F161B2FA9FC958CED8912D576;4424.
  ) 
 Here is how much of TeX's memory you used:
- 14834 strings out of 476683
- 239877 string characters out of 5800519
+ 16499 strings out of 476683
+ 271055 string characters out of 5800519
  1851012 words of memory out of 5000000
- 34760 multiletter control sequences out of 15000+600000
- 567347 words of font info for 86 fonts, out of 8000000 for 9000
+ 36369 multiletter control sequences out of 15000+600000
+ 555326 words of font info for 97 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,12n,90p,464b,997s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 87i,12n,117p,638b,995s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on shumo.pdf (8 pages).
+Output written on shumo.pdf (9 pages).

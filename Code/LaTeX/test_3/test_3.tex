@@ -3,6 +3,9 @@
 \usepackage{booktabs}
 \usepackage{cite}
 \usepackage[numbers,sort&compress]{natbib}
+\usepackage{graphicx} %插入图片的宏包
+\usepackage{float} %设置图片浮动位置的宏包
+\usepackage{subfigure} %插入多图时用子图显示的宏包
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{\cite{#1}}}}
 \title{\textbf{论文标题}}
 \author{Dylaaan}
@@ -42,6 +45,27 @@
 \subsection{二级标题}
 
 这里是正文\upcite{wk}.你好你好你说地方噶是的发生的\upcite{Mishra2023}
+\begin{figure}[H]
+	\includegraphics[width=1\textwidth]{"C:/Users/IK/Desktop/figure/1223@2x.png"}
+	\centering
+	\label{"可以和caption保持一致，也可以不写"}
+	\caption{"图片的标题，这个会显示在图片下方"}
+	\centering
+\end{figure}
+\begin{verbatim}
+    Initialize time steps T = 200
+    Initialize resource quantity R and parameters rR, cR, K_R
+    Initialize population size P and parameters rP, K_P
+    Initialize male_ratio and female_effect_on_birth_rate
+    
+    For t in range 1 to T:
+        Compute resource quantity R[t], ensure R[t] is not less than 20
+        Compute resource_ratio
+        Update male_ratio[t], ensure male_ratio[t] is between 0.56 and 0.78
+        Compute effective_birth_rate
+        Update population size P[t], ensure P[t] is not less than 20
+    \end{verbatim}
+%一张图片一行内居中：
 \newpage
 Reference
 \bibliographystyle{unsrt}      %参考文献样式
