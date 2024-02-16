@@ -1,5 +1,5 @@
-;;将CapsLk键映射为撤回
-;CapsLock::Backspace
+; !确保CapsLock本身的功能不会被触发
+SetCapsLockState, AlwaysOff
 ;以下为alt+E及alt+←→
 ; 当按下鼠标中键时发送 Alt + E
 MButton::Send, !e
@@ -10,7 +10,7 @@ XButton2::Send, !{Right}
 ; 当按下 Mouse5 时发送 Alt + 左箭头
 XButton1::Send, !{Left}
 
-;以下为shift+滚轮,横向;ctrl+shift+滚轮,加速横向
+;!以下为shift+滚轮,横向;ctrl+shift+滚轮,加速横向
 +WheelUp::  ; Scroll left.
     SetTitleMatchMode, 2
     IfWinActive, Excel
@@ -128,7 +128,7 @@ return
     }
 
 return
-;CapsLk+C适用于Mathtype
+;!CapsLk+C适用于Mathtype
 
 
 ; 当按下CapsLock+C时触发
@@ -150,24 +150,12 @@ CapsLock & c::
         }
     }
 return
-
+;!当前行全选
 CapsLock & a::
 	Send {Home}
 	Send +{End}
 Return
-; 监听CapsLock+W的按键组合
-; CapsLock & w::
-;     ; 枚举所有窗口
-;     WinGet, windows, List
-;     Loop, %windows%
-;     {
-;         ; 获取窗口句柄
-;         windowId := windows%A_Index%
-;         ; 尝试关闭窗口
-;         WinClose, ahk_id %windowId%
-;     }
-; return
-;win+C复制文件地址
+;!win+C复制文件地址
 #c::
 Clipboard =
 Send,^c
@@ -178,4 +166,15 @@ Tooltip,%path%
 Sleep,1000
 Tooltip
 Return
-
+;!窗口置顶
+; 监听CapsLock+~的按键组合
+CapsLock & `::
+    WinGet, ExStyle, ExStyle, A ; 获取当前活动窗口的扩展样式
+    if (ExStyle & 0x8) { ; 检查是否已经设置为置顶窗口
+        ; 如果已置顶，则取消置顶
+        WinSet, AlwaysOnTop, Off, A
+    } else {
+        ; 如果未置顶，则设置为置顶
+        WinSet, AlwaysOnTop, On, A
+    }
+return
