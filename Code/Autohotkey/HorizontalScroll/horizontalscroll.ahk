@@ -178,3 +178,12 @@ CapsLock & `::
         WinSet, AlwaysOnTop, On, A
     }
 return
+;!win+L锁屏同时息屏
+#L::  ; 按 Win + L 锁定电脑时触发
+{
+    Sleep 1000  ; 延迟1秒确保系统已经锁定
+    SendMessage, 0x0112, 0xF170, 2, , Program Manager  ; 发送关闭屏幕的命令
+    DllCall("LockWorkStation")  ; 调用系统锁定函数
+}
+return
+;!CapsLk映射鼠标右键

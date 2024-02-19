@@ -576,9 +576,9 @@ torch.nn.BatchNorm1d(Out_channel),
 )
 
 if In_channel != Out_channel:
-    self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
+self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
 else:
-    self.res_layer = None
+self.res_layer = None
 
 self.jia_relu=torch.nn.Sequential(torch.nn.ReLU())
 def forward(self,x):
@@ -595,24 +595,24 @@ if downsample == True:
 self.stride = 2
 
 self.layer = torch.nn.Sequential(
-    #torch.nn.Dropout(Dro),#夹
-    torch.nn.Conv2d(In_channel, Med_channel, 1, self.stride),
-    torch.nn.BatchNorm2d(Med_channel),
-    torch.nn.ReLU(),
-    #torch.nn.Dropout(Dro),#夹
-    torch.nn.Conv2d(Med_channel, Med_channel, 3, padding=1),
-    torch.nn.BatchNorm2d(Med_channel),
-    #torch.nn.ReLU(),
-    #torch.nn.Dropout(Dro),#夹
-    torch.nn.Conv2d(Med_channel, Out_channel, 1),
-    torch.nn.BatchNorm2d(Out_channel),
-    #torch.nn.ReLU(),
+#torch.nn.Dropout(Dro),#夹
+torch.nn.Conv2d(In_channel, Med_channel, 1, self.stride),
+torch.nn.BatchNorm2d(Med_channel),
+torch.nn.ReLU(),
+#torch.nn.Dropout(Dro),#夹
+torch.nn.Conv2d(Med_channel, Med_channel, 3, padding=1),
+torch.nn.BatchNorm2d(Med_channel),
+#torch.nn.ReLU(),
+#torch.nn.Dropout(Dro),#夹
+torch.nn.Conv2d(Med_channel, Out_channel, 1),
+torch.nn.BatchNorm2d(Out_channel),
+#torch.nn.ReLU(),
 )
 
 if In_channel != Out_channel:
-    self.res_layer = torch.nn.Conv2d(In_channel, Out_channel,1,self.stride)
+self.res_layer = torch.nn.Conv2d(In_channel, Out_channel,1,self.stride)
 else:
-    self.res_layer = None
+self.res_layer = None
 def forward(self,x):
 if self.res_layer is not None:
 residual = self.res_layer(x)
@@ -627,30 +627,30 @@ torch.nn.Linear(2048,classes)#变成每类特征的信息
 )
 
 self.features = torch.nn.Sequential(
-    torch.nn.Conv2d(in_channels,64,kernel_size=7,stride=2,padding=3),
-    torch.nn.MaxPool2d(3,2,1),
+torch.nn.Conv2d(in_channels,64,kernel_size=7,stride=2,padding=3),
+torch.nn.MaxPool2d(3,2,1),
 
-    Bottlrneck2d(64, 64, 256, False),
-    Bottlrneck2d(256, 64, 256, False),
-    Bottlrneck2d(256, 64, 256, False),
-    #
-    Bottlrneck2d(256, 128, 512, True),
-    Bottlrneck2d(512, 128, 512, False),
-    Bottlrneck2d(512, 128, 512, False),
-    Bottlrneck2d(512, 128, 512, False),
-    #
-    Bottlrneck2d(512, 256, 1024, True),
-    Bottlrneck2d(1024, 256, 1024, False),
-    Bottlrneck2d(1024, 256, 1024, False),
-    Bottlrneck2d(1024, 256, 1024, False),
-    Bottlrneck2d(1024, 256, 1024, False),
-    Bottlrneck2d(1024, 256, 1024, False),
-    #
-    Bottlrneck2d(1024, 512, 2048, True),
-    Bottlrneck2d(2048, 512, 2048, False),
-    Bottlrneck2d(2048, 512, 2048, False),
+Bottlrneck2d(64, 64, 256, False),
+Bottlrneck2d(256, 64, 256, False),
+Bottlrneck2d(256, 64, 256, False),
+#
+Bottlrneck2d(256, 128, 512, True),
+Bottlrneck2d(512, 128, 512, False),
+Bottlrneck2d(512, 128, 512, False),
+Bottlrneck2d(512, 128, 512, False),
+#
+Bottlrneck2d(512, 256, 1024, True),
+Bottlrneck2d(1024, 256, 1024, False),
+Bottlrneck2d(1024, 256, 1024, False),
+Bottlrneck2d(1024, 256, 1024, False),
+Bottlrneck2d(1024, 256, 1024, False),
+Bottlrneck2d(1024, 256, 1024, False),
+#
+Bottlrneck2d(1024, 512, 2048, True),
+Bottlrneck2d(2048, 512, 2048, False),
+Bottlrneck2d(2048, 512, 2048, False),
 
-    torch.nn.AdaptiveAvgPool2d(1)
+torch.nn.AdaptiveAvgPool2d(1)
 )
 def forward(self,x):
 x = self.features(x)
@@ -719,18 +719,18 @@ pool.join()
 del results
 
 losses = torch.stack([
-    step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
-    for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
+step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
+for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
 ])
 
 del all_x,all_y
 
 estimator.eval()
 with torch.no_grad():
-    val_losses = torch.stack([
-        loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
-        for i in range(nnum_v)
-    ])
+val_losses = torch.stack([
+loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
+for i in range(nnum_v)
+])
 
 scheduler.step()#学习率衰减
 
@@ -745,20 +745,25 @@ list_los.append(los)#话损失函数图
 list_losvail.append(losval)#话损失函数图
 
 # 储存监视
+
 data1 = list_los
 data2 = list_losvail
 last= now
 now = datetime.now()
+
 # 打开一个文件用于写入
+
 file = open('/home/suntianyang/work5/ligo/net/data_train_tf.txt', 'w')
 file.write('last_last:'+str(last) + '\n')
 file.write('___last__:'+str(now) + '\n')
 
 # 将每个元素写入文件中
+
 for item1, item2 in zip(data1, data2):
-    file.write(str(item1) + ' ' + str(item2) + '\n')
+file.write(str(item1) + ' ' + str(item2) + '\n')
 
 # 关闭文件
+
 file.close()
 
 del losses,data1,data2
@@ -773,11 +778,12 @@ torch.cuda.empty_cache()
 torch.save(estimator.state_dict(),f'/home/suntianyang/work5/ligo/net/NPE_mid_tf_hou.pth')
 
 if losval < best_loss:
-    best_loss = losval
-    epochs_without_improvement = 0
-    best_model_weights = estimator.state_dict()
+best_loss = losval
+epochs_without_improvement = 0
+best_model_weights = estimator.state_dict()
 else:
-    epochs_without_improvement += 1
+epochs_without_improvement += 1
+
 # 如果验证集上的损失连续patience个epoch没有提高，则停止训练
 
 if epochs_without_improvement == patience:
@@ -1186,9 +1192,9 @@ torch.nn.BatchNorm1d(Out_channel),
 )
 
 if In_channel != Out_channel:
-    self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
+self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
 else:
-    self.res_layer = None
+self.res_layer = None
 
 self.jia_relu=torch.nn.Sequential(torch.nn.ReLU())
 def forward(self,x):
@@ -1211,36 +1217,36 @@ self.features = torch.nn.Sequential(
 torch.nn.Conv1d(in_channels,64,kernel_size=7,stride=2,padding=3),##in_channels*x*x--->64*x/2*x/2
 torch.nn.MaxPool1d(3,2,1),#池化——64*x/4*x/4
 
-    Bottlrneck(64,64,256,False),
-    Bottlrneck(256,64,256,False),
-    Bottlrneck(256,64,256,False),#256*x/4*x/4
+Bottlrneck(64,64,256,False),
+Bottlrneck(256,64,256,False),
+Bottlrneck(256,64,256,False),#256*x/4*x/4
 
 
 
-    Bottlrneck(256,128,512, True),#True代表卷积步长为2————256*x/8*x/8
-    Bottlrneck(512,128,512, False),
-    Bottlrneck(512,128,512, False),
-    Bottlrneck(512,128,512, False),
+Bottlrneck(256,128,512, True),#True代表卷积步长为2————256*x/8*x/8
+Bottlrneck(512,128,512, False),
+Bottlrneck(512,128,512, False),
+Bottlrneck(512,128,512, False),
 
 
 
-    Bottlrneck(512,256,1024, True),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
+Bottlrneck(512,256,1024, True),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
 
 
 
-    Bottlrneck(1024,512,2048, True),
-    Bottlrneck(2048,512,2048, False),
-    Bottlrneck(2048,512,2048, False),
+Bottlrneck(1024,512,2048, True),
+Bottlrneck(2048,512,2048, False),
+Bottlrneck(2048,512,2048, False),
 
-    torch.nn.AdaptiveAvgPool1d(1)#变成2048*1*1
+torch.nn.AdaptiveAvgPool1d(1)#变成2048*1*1
 )
 self.classifer = torch.nn.Sequential(
-    torch.nn.Linear(2048,classes)#变成每类特征的信息
+torch.nn.Linear(2048,classes)#变成每类特征的信息
 )
 def forward(self,x):
 x = self.features(x)
@@ -1314,18 +1320,18 @@ del results
 
 estimator.train()
 losses = torch.stack([
-    step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
-    for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
+step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
+for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
 ])
 
 del all_x,all_y
 
 estimator.eval()
 with torch.no_grad():
-    val_losses = torch.stack([
-        loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
-        for i in range(nnum_v)
-    ])
+val_losses = torch.stack([
+loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
+for i in range(nnum_v)
+])
 
 scheduler.step()#学习率衰减
 
@@ -1340,20 +1346,25 @@ list_los.append(los)#话损失函数图
 list_losvail.append(losval)#话损失函数图
 
 # 储存监视
+
 data1 = list_los
 data2 = list_losvail
 last= now
 now = datetime.now()
+
 # 打开一个文件用于写入
+
 file = open('/home/suntianyang/work5/ligo/net/data_train_t.txt', 'w')
 file.write('last_last:'+str(last) + '\n')
 file.write('___last__:'+str(now) + '\n')
 
 # 将每个元素写入文件中
+
 for item1, item2 in zip(data1, data2):
-    file.write(str(item1) + ' ' + str(item2) + '\n')
+file.write(str(item1) + ' ' + str(item2) + '\n')
 
 # 关闭文件
+
 file.close()
 
 del losses,data1,data2
@@ -1368,11 +1379,12 @@ torch.cuda.empty_cache()
 torch.save(estimator.state_dict(),f'/home/suntianyang/work5/ligo/net/NPE_mid_t_hou.pth')
 
 if losval < best_loss:
-    best_loss = losval
-    epochs_without_improvement = 0
-    best_model_weights = estimator.state_dict()
+best_loss = losval
+epochs_without_improvement = 0
+best_model_weights = estimator.state_dict()
 else:
-    epochs_without_improvement += 1
+epochs_without_improvement += 1
+
 # 如果验证集上的损失连续patience个epoch没有提高，则停止训练
 
 if epochs_without_improvement == patience:
@@ -1611,9 +1623,9 @@ torch.nn.BatchNorm1d(Out_channel),
 )
 
 if In_channel != Out_channel:
-    self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
+self.res_layer = torch.nn.Conv1d(In_channel, Out_channel,1,self.stride)
 else:
-    self.res_layer = None
+self.res_layer = None
 
 self.jia_relu=torch.nn.Sequential(torch.nn.ReLU())
 def forward(self,x):
@@ -1636,36 +1648,36 @@ self.features = torch.nn.Sequential(
 torch.nn.Conv1d(in_channels,64,kernel_size=7,stride=2,padding=3),##in_channels*x*x--->64*x/2*x/2
 torch.nn.MaxPool1d(3,2,1),#池化——64*x/4*x/4
 
-    Bottlrneck(64,64,256,False),
-    Bottlrneck(256,64,256,False),
-    Bottlrneck(256,64,256,False),#256*x/4*x/4
+Bottlrneck(64,64,256,False),
+Bottlrneck(256,64,256,False),
+Bottlrneck(256,64,256,False),#256*x/4*x/4
 
 
 
-    Bottlrneck(256,128,512, True),#True代表卷积步长为2————256*x/8*x/8
-    Bottlrneck(512,128,512, False),
-    Bottlrneck(512,128,512, False),
-    Bottlrneck(512,128,512, False),
+Bottlrneck(256,128,512, True),#True代表卷积步长为2————256*x/8*x/8
+Bottlrneck(512,128,512, False),
+Bottlrneck(512,128,512, False),
+Bottlrneck(512,128,512, False),
 
 
 
-    Bottlrneck(512,256,1024, True),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
-    Bottlrneck(1024,256,1024, False),
+Bottlrneck(512,256,1024, True),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
+Bottlrneck(1024,256,1024, False),
 
 
 
-    Bottlrneck(1024,512,2048, True),
-    Bottlrneck(2048,512,2048, False),
-    Bottlrneck(2048,512,2048, False),
+Bottlrneck(1024,512,2048, True),
+Bottlrneck(2048,512,2048, False),
+Bottlrneck(2048,512,2048, False),
 
-    torch.nn.AdaptiveAvgPool1d(1)#变成2048*1*1
+torch.nn.AdaptiveAvgPool1d(1)#变成2048*1*1
 )
 self.classifer = torch.nn.Sequential(
-    torch.nn.Linear(2048,classes)#变成每类特征的信息
+torch.nn.Linear(2048,classes)#变成每类特征的信息
 )
 def forward(self,x):
 x = self.features(x)
@@ -1742,18 +1754,18 @@ del results
 
 estimator.train()
 losses = torch.stack([
-    step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
-    for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
+step(loss(preprocess(all_y[i]).cuda(), all_x[i].cuda()))
+for i in range(nnum) # 这样写是遍历全部元素，实例那样是因为他是采样器
 ])
 
 del all_x,all_y
 
 estimator.eval()
 with torch.no_grad():
-    val_losses = torch.stack([
-        loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
-        for i in range(nnum_v)
-    ])
+val_losses = torch.stack([
+loss(preprocess(all_y_vail[i]).cuda(), all_x_vail[i].cuda())
+for i in range(nnum_v)
+])
 
 scheduler.step()#学习率衰减
 
@@ -1768,20 +1780,25 @@ list_los.append(los)#话损失函数图
 list_losvail.append(losval)#话损失函数图
 
 # 储存监视
+
 data1 = list_los
 data2 = list_losvail
 last= now
 now = datetime.now()
+
 # 打开一个文件用于写入
+
 file = open('/home/suntianyang/work5/ligo/net/data_train_f.txt', 'w')
 file.write('last_last:'+str(last) + '\n')
 file.write('___last__:'+str(now) + '\n')
 
 # 将每个元素写入文件中
+
 for item1, item2 in zip(data1, data2):
-    file.write(str(item1) + ' ' + str(item2) + '\n')
+file.write(str(item1) + ' ' + str(item2) + '\n')
 
 # 关闭文件
+
 file.close()
 
 del losses,data1,data2
@@ -1796,11 +1813,12 @@ torch.cuda.empty_cache()
 torch.save(estimator.state_dict(),f'/home/suntianyang/work5/ligo/net/NPE_mid_f_hou.pth')
 
 if losval < best_loss:
-    best_loss = losval
-    epochs_without_improvement = 0
-    best_model_weights = estimator.state_dict()
+best_loss = losval
+epochs_without_improvement = 0
+best_model_weights = estimator.state_dict()
 else:
-    epochs_without_improvement += 1
+epochs_without_improvement += 1
+
 # 如果验证集上的损失连续patience个epoch没有提高，则停止训练
 
 if epochs_without_improvement == patience:
