@@ -1,5 +1,5 @@
 ; !确保CapsLock本身的功能不会被触发
-SetCapsLockState, AlwaysOff
+;SetCapsLockState, AlwaysOff
 ;以下为alt+E及alt+←→
 ; 当按下鼠标中键时发送 Alt + E
 MButton::Send, !e
@@ -186,4 +186,3 @@ return
     DllCall("LockWorkStation")  ; 调用系统锁定函数
 }
 return
-;!CapsLk映射鼠标右键
