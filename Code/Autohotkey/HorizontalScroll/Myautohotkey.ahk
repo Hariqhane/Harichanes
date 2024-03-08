@@ -186,3 +186,12 @@ return
     DllCall("LockWorkStation")  ; 调用系统锁定函数
 }
 return
+; 当按下Ctrl+Alt并且鼠标滚轮向上滚动时，页面滚动条移动到最顶端
+^!WheelUp::
+    Send, {Home}
+    return
+
+; 当按下Ctrl+Alt并且鼠标滚轮向下滚动时，页面滚动条移动到最低端
+^!WheelDown::
+    Send, {End}
+    return
