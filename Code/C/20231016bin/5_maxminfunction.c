@@ -7,7 +7,6 @@ int main()
     int min,max;
     minmax(a,len,&max,&min);
     printf("%d,%d\n",min,max);
-    system("pause"); 
     return 0;
 }
 void minmax(int a[],int len, int *max,int *min)

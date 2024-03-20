@@ -1,5 +1,5 @@
 ; !确保CapsLock本身的功能不会被触发
-;SetCapsLockState, AlwaysOff
+SetCapsLockState, AlwaysOff
 ;以下为alt+E及alt+←→
 ; 当按下鼠标中键时发送 Alt + E
 MButton::Send, !e
@@ -12,8 +12,8 @@ XButton1::Send, !{Left}
 
 ;!以下为shift+滚轮,横向;ctrl+shift+滚轮,加速横向
 +WheelUp::  ; Scroll left.
-    SetTitleMatchMode, 2
-    IfWinActive, Excel
+SetTitleMatchMode, 2
+IfWinActive, Excel
     {
         ;SetScrollLockState, on
         ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,0,2)
@@ -186,6 +186,7 @@ return
     DllCall("LockWorkStation")  ; 调用系统锁定函数
 }
 return
+;! 用;和'取代Home和end
 ; 当按下Ctrl+Alt并且鼠标滚轮向上滚动时，页面滚动条移动到最顶端
 ^!WheelUp::
     Send, {Home}
@@ -195,3 +196,41 @@ return
 ^!WheelDown::
     Send, {End}
     return
+; !设置Alt+;为Home键
+!;::
+    Send {Home}
+    return
+
+; !设置Alt+'为End键
+!'::
+    Send {End}
+    return
+; 当按下Ctrl+Alt+;时，发送Ctrl+Home
+^!;::
+    Send ^{Home}
+    return
+; 当按下Ctrl+Alt+'时，发送Ctrl+End
+^!'::
+    Send ^{End}
+    return
+; 当按下Ctrl+Shift+Alt+;时，发送Ctrl+Shift+Home
+^+!;::
+    Send ^+{Home}
+    return
+; 当按下Ctrl+Shift+Alt+'时，发送Ctrl+Shift+End
+^+!'::
+    Send ^+{End}
+    return
+; 当按下Shift+alt+;时, 发送Shift+Home
++!;::
+    Send +{Home}
+    return
+; 当按下Shift+alt+;时, 发送Shift+End
++!'::
+    Send +{End}
+    return
+;写C语言代码时, 按下Ctrl+;,在行尾加分号
+^;:: ; Ctrl+; hotkey
+Send, {End} ; Move cursor to the end of the line
+Send, `{;}` ; Correctly type ;
+return
