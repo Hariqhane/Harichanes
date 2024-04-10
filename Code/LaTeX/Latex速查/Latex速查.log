@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  20 MAR 2024 15:51
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  10 APR 2024 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1010,26 +1010,6 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip80
-) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/draftwatermark/draftwatermark.sty
-Package: draftwatermark 2020/12/08 3.0 Put a gray textual watermark on document pages
-) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/everypage/everypage.sty
-Package: everypage 2020/10/17 R2.0b Hooks to run on every page
-
-
-Package everypage Warning: Functionality similar to this package has recently
-(everypage)                been implemented in LaTeX. This package is now in
-(everypage)                legacy status.
-(everypage)                Please, don't use it in new documents and packages.
-
-
-Package everypage Warning: You appear to be running a version of LaTeX
-(everypage)                providing the new functionality.
-(everypage)                Doing the best to deliver the original `everypage`
-(everypage)                interface on top of it. Strict equivalence is
-(everypage)                not possible, breakage may occur.
-(everypage)                If truly needed, Use `everypage-1x` to force the
-(everypage)                loading of an older code base.
-
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -1681,11 +1661,11 @@ Package rerunfilecheck Info: File `Latex速查.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38160 strings out of 476683
- 781464 string characters out of 5800519
- 1940012 words of memory out of 5000000
- 57515 multiletter control sequences out of 15000+600000
- 544528 words of font info for 286 fonts, out of 8000000 for 9000
+ 38023 strings out of 476683
+ 777090 string characters out of 5800519
+ 1939012 words of memory out of 5000000
+ 57388 multiletter control sequences out of 15000+600000
+ 544512 words of font info for 284 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  89i,16n,122p,1006b,2366s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

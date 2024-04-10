@@ -1,161 +1,127 @@
-﻿; !ȷ��CapsLock�����Ĺ��ܲ��ᱻ����
+﻿; 禁用CapsLock键
 SetCapsLockState, AlwaysOff
-;����Ϊalt+E��alt+����
-; ����������м�ʱ���� Alt + E
+
+; 鼠标中键模拟Alt+E快捷键
 MButton::Send, !e
 
-; ������ Mouse4 ʱ���� Alt + �Ҽ�ͷ
+; 鼠标侧键模拟浏览器前进后退
 XButton2::Send, !{Right}
-
-; ������ Mouse5 ʱ���� Alt + ���ͷ
 XButton1::Send, !{Left}
-
-;!����Ϊshift+����,����;ctrl+shift+����,���ٺ���
-+WheelUp::  ; Scroll left.
+; 滚轮上滚进行特定应用的滚动或其他动作
++WheelUp::
 SetTitleMatchMode, 2
 IfWinActive, Excel
-    {
-        ;SetScrollLockState, on
-        ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,0,2)
-        ;SetScrollLockState, off
-    }
-    else IfWinActive, PowerPoint
-    	ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,0,3)
-    else IfWinActive, Word
-    	ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,0,3)
-    else IfWinActive, Adobe Acrobat Professional -
-    {
-        send,+{left}
-    }
-    else IfWinActive, - Mozilla Firefox
-    {
-		Loop 4
-			send,{left}
-    }
-    else
-    {
-        ControlGetFocus, FocusedControl, A
-		Loop 10
-			SendMessage, 0x114, 0, 0, %FocusedControl%, A  ; 0x114 is WM_HSCROLL ; 1 vs. 0 causes SB_LINEDOWN vs. UP
-    }
+{
+    ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,0,2)
+}
+else IfWinActive, PowerPoint
+    ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,0,3)
+else IfWinActive, Word
+    ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,0,3)
+else IfWinActive, Adobe Acrobat Professional -
+{
+    send,+{left}
+}
+else IfWinActive, - Mozilla Firefox
+{
+    Loop 4
+        send,{left}
+}
+else
+{
+    ControlGetFocus, FocusedControl, A
+    Loop 10
+        SendMessage, 0x114, 0, 0, %FocusedControl%, A
+}
+return
+; 滚轮下滚进行特定应用的滚动或其他动作
++WheelDown::
+SetTitleMatchMode, 2
+IfWinActive, Excel
+{
+    ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,2,0)
+}
+else IfWinActive, PowerPoint
+    ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,3,0)
+else IfWinActive, Word
+    ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,3,0)
+else IfWinActive, Adobe Acrobat Professional -
+{
+    send,+{right}
+}
+else IfWinActive, - Mozilla Firefox
+{
+    Loop 4
+        send,{right}
+}
+else
+{
+    ControlGetFocus, FocusedControl, A
+    Loop 10
+        SendMessage, 0x114, 1, 0, %FocusedControl%, A
+}
 return
 
 
-+WheelDown::  ; Scroll right.
-    SetTitleMatchMode, 2
-    IfWinActive, Excel
-    {
-        ;SetScrollLockState, on
-        ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,2,0)
-        ;SetScrollLockState, off
-    }
-    else IfWinActive, PowerPoint
-    	ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,3,0)
-    else IfWinActive, Word
-    	ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,3,0)
-    else IfWinActive, Adobe Acrobat Professional -
-    {
-        send,+{right}
-    }
-    else IfWinActive, - Mozilla Firefox
-    {
-		Loop 4
-			send,{right}
-    }
-    else
-    {
-        ControlGetFocus, FocusedControl, A
-		Loop 10
-			SendMessage, 0x114, 1, 0, %FocusedControl%, A  ; 0x114 is WM_HSCROLL ; 1 vs. 0 causes SB_LINEDOWN vs. UP
-    }
+; Ctrl+Shift+滚轮上滚在特定应用中进行更大幅度的滚动
+^+WheelUp::
+SetTitleMatchMode, 2
+IfWinActive, Excel
+{
+    ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,0,10)
+}
+else IfWinActive, PowerPoint
+    ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,0,10)
+else IfWinActive, Word
+    ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,0,10)
+else
+{
+    ControlGetFocus, FocusedControl, A
+    Loop 500
+        SendMessage, 0x114, 0, 0, %FocusedControl%, A
+}
 return
 
-^+WheelUp::  ; Scroll left.
-    SetTitleMatchMode, 2
-    IfWinActive, Excel
-    {
-        ;SetScrollLockState, on
-        ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,0,10)
-        ;SetScrollLockState, off
-    }
-    else IfWinActive, PowerPoint
-    	ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,0,10)
-    else IfWinActive, Word
-    	ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,0,10)
-    else IfWinActive, Adobe Acrobat Professional -
-    {
-        send,+{left}
-    }
-    else IfWinActive, - Mozilla Firefox
-    {
-		Loop 4
-			send,{left}
-    }
-    else
-    {
-        ControlGetFocus, FocusedControl, A
-		Loop 500
-			SendMessage, 0x114, 0, 0, %FocusedControl%, A  ; 0x114 is WM_HSCROLL ; 1 vs. 0 causes SB_LINEDOWN vs. UP ; ZHULAOJIANKEHAVEWRITTENITONAPRIL THETENTH INTWENTYTWENTYONE
-    }
+; Ctrl+Shift+滚轮下滚在特定应用中进行更大幅度的滚动
+^+WheelDown::
+SetTitleMatchMode, 2
+IfWinActive, Excel
+{
+    ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,10,0)
+}
+else IfWinActive, PowerPoint
+    ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,10,0)
+else IfWinActive, Word
+    ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,10,0)
+else
+{
+    ControlGetFocus, FocusedControl, A
+    Loop 100
+        SendMessage, 0x114, 1, 0, %FocusedControl%, A
+}
 return
 
-^+WheelDown::  ; Scroll right.
-    SetTitleMatchMode, 2
-    IfWinActive, Excel
-    {
-        ;SetScrollLockState, on
-        ComObjActive("Excel.Application").ActiveWindow.SmallScroll(0,0,10,0)
-        ;SetScrollLockState, off
-    }
-    else IfWinActive, PowerPoint
-    	ComObjActive("PowerPoint.Application").ActiveWindow.SmallScroll(0,0,10,0)
-    else IfWinActive, Word
-    	ComObjActive("Word.Application").ActiveWindow.SmallScroll(0,0,10,0)
-    else IfWinActive, Adobe Acrobat Professional -
-    {
-        send,+{right}
-    }
-    else IfWinActive, - Mozilla Firefox
-    {
-		Loop 4
-			send,{right}
-    }
-    else
-    {
-        ControlGetFocus, FocusedControl, A
-		Loop 100
-			SendMessage, 0x114, 1, 0, %FocusedControl%, A  ; 0x114 is WM_HSCROLL ; 1 vs. 0 causes SB_LINEDOWN vs. UP
-    }
-
-return
-;!CapsLk+C������Mathtype
-
-
-; ������CapsLock+Cʱ����
+; 使用CapsLock+c复制MathType公式
 CapsLock & c::
-    IfWinActive, MathType ; ���MathType�����Ƿ�Ϊ�����
+IfWinActive, MathType
+{
+    Clipboard := ""
+    Send, ^c
+    ClipWait, 1
+    if (StrLen(Clipboard) > 2)
     {
-        Clipboard := "" ; ��ռ��а壬Ϊ��������׼��
-        Send, ^c ; ģ��Ctrl+C����ѡ�е��ı�
-        ClipWait, 1 ; �ȴ����а����ݸ��£����ȴ�1��
-        if (StrLen(Clipboard) > 2) ; ������а����ݵĳ��ȴ���2���ַ�
-        {
-            ; �Ӽ��а���ɾ����һ�������һ���ַ�
-            Clipboard := SubStr(Clipboard, 2, StrLen(Clipboard) - 2)
-        }
-        else
-        {
-            ; ������а����ݲ�����ɾ�������ַ��������κθı�
-            ; �������������Ӵ��봦�����а����ݳ���С�ڵ���2����������籣��ԭ������ռ��а�
-        }
+        Clipboard := SubStr(Clipboard, 2, StrLen(Clipboard) - 2)
     }
+}
 return
-;!��ǰ��ȫѡ
+
+; CapsLock+a快捷键选取当前行文本
 CapsLock & a::
-	Send {Home}
-	Send +{End}
+Send {Home}
+Send +{End}
 Return
-;!win+C�����ļ���ַ
+
+; Ctrl+CapsLock+c复制文件路径到剪切板并显示为提示信息
 #c::
 Clipboard =
 Send,^c
@@ -166,83 +132,100 @@ Tooltip,%path%
 Sleep,1000
 Tooltip
 Return
-;!�����ö�
-; ����CapsLock+~�İ������
+
+; CapsLock+`切换当前窗口的置顶状态
 CapsLock & `::
-    WinGet, ExStyle, ExStyle, A ; ��ȡ��ǰ����ڵ���չ��ʽ
-    if (ExStyle & 0x8) { ; ����Ƿ��Ѿ�����Ϊ�ö�����
-        ; ������ö�����ȡ���ö�
-        WinSet, AlwaysOnTop, Off, A
-    } else {
-        ; ���δ�ö���������Ϊ�ö�
-        WinSet, AlwaysOnTop, On, A
-    }
-return
-;!win+L����ͬʱϢ��
-#L::  ; �� Win + L ��������ʱ����
-{
-    Sleep 500  ; �ӳ�1��ȷ��ϵͳ�Ѿ�����
-    SendMessage, 0x0112, 0xF170, 2, , Program Manager  ; ���͹ر���Ļ������
-    DllCall("LockWorkStation")  ; ����ϵͳ��������
+WinGet, ExStyle, ExStyle, A
+if (ExStyle & 0x8) {
+    WinSet, AlwaysOnTop, Off, A
+} else {
+    WinSet, AlwaysOnTop, On, A
 }
 return
-;! ��;��'ȡ��Home��end
-; ������Ctrl+Alt�������������Ϲ���ʱ��ҳ��������ƶ������
+
+; #L锁定计算机
+#L::
+{
+    Sleep 500  
+    SendMessage, 0x0112, 0xF170, 2,, Program Manager  
+    DllCall("LockWorkStation")  
+}
+return
+
+; #Ctrl+Alt+Scroll, Home&end
 ^!WheelUp::
     Send, {Home}
     return
-
-; ������Ctrl+Alt�������������¹���ʱ��ҳ��������ƶ�����Ͷ�
 ^!WheelDown::
     Send, {End}
     return
-; !����Alt+;ΪHome��
+
+; Alt+; Home
 !;::
     Send {Home}
     return
 
-; !����Alt+'ΪEnd��
+;ALt+', End
 !'::
     Send {End}
     return
-; ������Ctrl+Alt+;ʱ������Ctrl+Home
+; Shift+Alt+; , Shift+Home
 ^!;::
     Send ^{Home}
     return
-; ������Ctrl+Alt+'ʱ������Ctrl+End
 ^!'::
     Send ^{End}
     return
-; ������Ctrl+Shift+Alt+;ʱ������Ctrl+Shift+Home
 ^+!;::
     Send ^+{Home}
     return
-; ������Ctrl+Shift+Alt+'ʱ������Ctrl+Shift+End
 ^+!'::
     Send ^+{End}
     return
-; ������Shift+alt+;ʱ, ����Shift+Home
 +!;::
     Send +{Home}
     return
-; ������Shift+alt+;ʱ, ����Shift+End
 +!'::
     Send +{End}
     return
-;дC���Դ���ʱ, ����Ctrl+;,����β�ӷֺ�
+
+; Ctrl+; , 在行尾添加;
 ^;:: ; Ctrl+; hotkey
-Send, {End} ; Move cursor to the end of the line
-Send, `{;}` ; Correctly type ;
-return
-^+Q:: ; 定义 Ctrl+Shift+Q 为热键
-Send, {F2}
-Sleep, 50 ; 稍等一下以确保操作顺畅进行
-Send, {Right}
-Sleep, 50 ; 稍等一下以确保操作顺畅进行
-Send, {Backspace 7}
-return
+    Send, {End} ; Move cursor to the end of the line
+    Send, `{;}` ; Correctly type ;
+    return
+
+;Ctrl+Shift+Q, 在稻壳阅读器中添加书签时自动删除后七个字符
+^+Q:: 
+    Send, {F2}
+    Sleep, 50 ; 稍等一下以确保操作顺畅进行
+    Send, {Right}
+    Sleep, 50 ; 稍等一下以确保操作顺畅进行
+    Send, {Backspace 7}
+    return
+
 ; 当按住Alt并向下滚动鼠标滚轮时，触发Win+T
 !WheelDown::
-SendInput, {LWin Down}t{LWin Up}
-; Sleep, 50 ; 添加一个非常短的延迟
-return
+    SendInput, {LWin Down}t{LWin Up}
+    return
+
+; 定义 Ctrl+Shift+W 删除快捷方式后缀 
+^+W:: 
+    Send, {F2}
+    Sleep, 50 ; 稍等一下以确保操作顺畅进行
+    Send, {Right}
+    Sleep, 50 ; 稍等一下以确保操作顺畅进行
+    Send, {Backspace 11}
+    return
+
+; 在Onenote中的上下角标快捷键, 用Ctrl+H和Ctrl和Ctrl+L
+#IfWinActive ahk_class Framework::CFrame
+^H:: ; 当按下Ctrl+H时
+    Send, ^+{=} ; 模拟按下Ctrl+Shift+=
+    return
+
+^L:: ; 当按下Ctrl+L时
+    Send, ^{=} ; 模拟按下Ctrl+=
+    return
+
+#IfWinActive
