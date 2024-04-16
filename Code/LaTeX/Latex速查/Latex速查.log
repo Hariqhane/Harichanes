@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  10 APR 2024 17:06
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.13)  15 APR 2024 21:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1030,7 +1030,8 @@ File: lstlang2.sty 2023/02/27 1.9 listings language file
 File: lstlang3.sty 2023/02/27 1.9 listings language file
 ) (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-) (./Latex速查.aux)
+)
+No file Latex速查.aux.
 \openout1 = `Latex速查.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
@@ -1053,7 +1054,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
 LaTeX Font Info:    ... okay on input line 119.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 119.
 LaTeX Font Info:    ... okay on input line 119.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1151,12 +1151,15 @@ File: fc-english.def 2016/01/12
 )
 \c@lstlisting=\count403
 Package hyperref Info: Link coloring OFF on input line 119.
- (./Latex速查.out) (./Latex速查.out)
 \@outlinefile=\write5
 \openout5 = `Latex速查.out'.
 
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Font Info:    Trying to load font information for OMX+yhex on input line 121.
- (c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/yhmath/OMXyhex.fd
+(c:/ProjectSoftware/texlive/2023/texmf-dist/tex/latex/yhmath/OMXyhex.fd
 File: OMXyhex.fd 
 File: OMXyhex.fd 2013/07/03 v1.1 YH's humble contribution to TeX maths (NP)
 )
@@ -1259,6 +1262,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 302--311
 
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 375.
+
+
+LaTeX Warning: Reference `aaa1' on page 2 undefined on input line 380.
+
+
+LaTeX Warning: Reference `aaa2' on page 2 undefined on input line 381.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 386--389
@@ -1657,12 +1666,24 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `Latex速查.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Latex速查.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Latex速查.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38023 strings out of 476683
- 777090 string characters out of 5800519
+ 38017 strings out of 476683
+ 777018 string characters out of 5800519
  1939012 words of memory out of 5000000
  57388 multiletter control sequences out of 15000+600000
  544512 words of font info for 284 fonts, out of 8000000 for 9000
