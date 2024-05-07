@@ -194,7 +194,10 @@ return
     Send, {End} ; Move cursor to the end of the line
     Send, `{;}` ; Correctly type ;
     return
-
+^+;::
+    Send, {End} ; Move cursor to the end of the line
+    Send, `{:}` ; Correctly type ;
+    return
 ;Ctrl+Shift+Q, 在稻壳阅读器中添加书签时自动删除后七个字符
 ^+Q:: 
     Send, {F2}
